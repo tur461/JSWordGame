@@ -13,7 +13,7 @@ let wordList = [];
 let scoreList = [];
 let baseDict = {};
 // I assume this js file is imported into html, I used live-server (npm package) to test this code.
-let pathToWordlistFile = 'http://127.0.0.1:8080/wordlist.txt';
+let pathToWordlistFile = 'https://raw.githubusercontent.com/tur461/JSWordGame/main/wordlist.txt';
 
 // this.print = _ => {
 //     console.log('baseDict', {...baseDict});
@@ -64,6 +64,7 @@ function isWordValid (word) {
     });
     // now check the word is in wordlist 
     if(wordList.indexOf(word) === -1) return !1;
+    console.log('word is valid');
     return !0; 
 }
 
@@ -75,7 +76,10 @@ function storeIntoScoreList (word) {
         return -1;
     }
 
-    if(scoredWordList.filter(sw => sw.word === word).length) return; // word already in the list!  
+    if(scoredWordList.filter(sw => sw.word === word).length) {
+        console.log('[duplicate] word is already stored.');
+        return; // word already in the list!  
+    }
 
     let t = {
         word: word,
@@ -90,7 +94,8 @@ function storeIntoScoreList (word) {
     } else {
         scoredWordList[t.position] = t;
     }
-    scoreList[t.position] = word.length; 
+    scoreList[t.position] = word.length;
+    console.log('word: '+ word+' stored at position: '+t.position);
 }
 
 /*
@@ -109,6 +114,8 @@ A word can only appear ONCE in the high score list. If the word is already prese
     
     if(isWordValid(word))
         storeIntoScoreList(word);
+    else
+        console.log('word is invalid!');
  };
  
 /*

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+  </head>
+  <body>
+    <script src="wordgame.js"></script>
+    <script>
+      let wg = new WordGame();
+
+      wg.submitWord("abdicating");
+      wg.submitWord("aa");
+      wg.submitWord("bbb");
+      wg.submitWord("abbreviate");
+      wg.submitWord("abbreviated");
+      wg.submitWord("abbreviates");
+      wg.submitWord("abbreviating");
+      wg.submitWord("abbreviation");
+      wg.submitWord("abbreviations");
+      wg.submitWord("abbreviator");
+      // wg.print();
+      wg.submitWord("abbreviators");
+      // wg.print();
+      wg.submitWord("abdicable");
+      // wg.print();
+      wg.submitWord("abdicate");
+      // wg.print();
+      wg.submitWord("abdicated");
+      // wg.print();
+      wg.submitWord("abdicates");
+      wg.submitWord("abdicating");
+      wg.submitWord("abdication");
+      wg.submitWord("abdications");
+      wg.submitWord("abdicator");
+      wg.submitWord("abdicators");
+
+      console.log(wg.getScoreAtPosition(1));
+      console.log(wg.getWordEntryAtPosition(1));
+    </script>
+  </body>
+</html>

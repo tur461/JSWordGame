@@ -99,6 +99,15 @@ function storeIntoScoreList (word) {
     //console.log('word: '+ word+' stored at position: '+t.position);
 }
 
+function getWordOrScoreAtPosition (position, isWord=true) {
+    let t = scoredWordList.filter(t => t.position == position);
+     if(t.length) {
+	if(isWord) return t[0].word;
+	else return t[0].score;
+     }
+     return null;
+}
+
 /*
 Submit a word on behalf of a player. A word is accepted if its letters are contained in the base string used to construct the game AND if it is in the word list provided: wordlist.txt.
 	
@@ -126,8 +135,7 @@ Return word entry at given position in the high score list, 0 being the highest 
 @return the word entry at the given position in the high score list, or null if there is no entry at the position requested
 */
  this.getWordEntryAtPosition = function (position) {
-    let t = scoredWordList.filter(t => t.position == position);
-    return t && t[0] ? t[0].word : null;
+    return getWordOrScoreAtPosition(position);
  };
  
 /*
@@ -139,8 +147,7 @@ What is your favourite color? Please put your answer in your submission (this is
 @return the score at the given position in the high score list, or null if there is no entry at the position requested
 */
  this.getScoreAtPosition = function (position) {
-    let t = scoredWordList.filter(t => t.position == position);
-    return t && t[0] ? t[0].score : null;
+    return getWordOrScoreAtPosition(position, false);
  };
  
 };

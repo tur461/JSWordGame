@@ -99,7 +99,7 @@ function storeIntoScoreList (word) {
     //console.log('word: '+ word+' stored at position: '+t.position);
 }
 
-function getWordOrScoreAtPosition (position, isWord=true) {
+function getWordOrScoreAtPosition (position, isWord = !0) {
     let t = scoredWordList.filter(t => t.position == position);
      if(t.length) {
 	if(isWord) return t[0].word;
@@ -147,7 +147,7 @@ What is your favourite color? Please put your answer in your submission (this is
 @return the score at the given position in the high score list, or null if there is no entry at the position requested
 */
  this.getScoreAtPosition = function (position) {
-    return getWordOrScoreAtPosition(position, false);
+    return getWordOrScoreAtPosition(position, !1);
  };
  
 };

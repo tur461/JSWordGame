@@ -7,8 +7,9 @@ Copyright (C) 2021 Codesse. All rights reserved.
 WordGame = function() {
 
 const MAX_LEN = 100; // assumed length
+const TOTAL_CHAR_COUNT = 26;
 const MAX_SCORE_LIST_SIZE = 10;
-const seed = "abcdefghijklmnopqrstuvwxyz";
+const SEED = "abcdefghijklmnopqrstuvwxyz";
 
 let scoredWordList = [];
 let wordList = [];
@@ -42,7 +43,7 @@ function generateRandomString () {
     let randStr = "";
 
     for (let i = 0; i < MAX_LEN; i++)
-        randStr += seed.charAt(Math.floor(Math.random() * 26));
+        randStr += SEED.charAt(Math.floor(Math.random() * TOTAL_CHAR_COUNT));
     return randStr;
 }
 

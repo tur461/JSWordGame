@@ -7,6 +7,7 @@ Copyright (C) 2021 Codesse. All rights reserved.
 WordGame = function() {
 
 const MAX_LEN = 100; // assumed length
+const MAX_SCORE_LIST_SIZE = 10;
 
 let scoredWordList = [];
 let wordList = [];
@@ -64,20 +65,20 @@ function isWordValid (word) {
     });
     // now check the word is in wordlist 
     if(wordList.indexOf(word) === -1) return !1;
-    console.log('word is valid');
+    //console.log('word is valid');
     return !0; 
 }
 
 function storeIntoScoreList (word) {
     function getPos() {
-        if(scoreList.length === 10) {
+        if(scoreList.length === MAX_SCORE_LIST_SIZE) {
             return scoreList.findIndex(s => s === Math.min(...scoreList));
         }
         return -1;
     }
 
     if(scoredWordList.filter(sw => sw.word === word).length) {
-        console.log('[duplicate] word is already stored.');
+        //console.log('[duplicate] word is already stored.');
         return; // word already in the list!  
     }
 
@@ -95,7 +96,7 @@ function storeIntoScoreList (word) {
         scoredWordList[t.position] = t;
     }
     scoreList[t.position] = word.length;
-    console.log('word: '+ word+' stored at position: '+t.position);
+    //console.log('word: '+ word+' stored at position: '+t.position);
 }
 
 /*
@@ -114,8 +115,8 @@ A word can only appear ONCE in the high score list. If the word is already prese
     
     if(isWordValid(word))
         storeIntoScoreList(word);
-    else
-        console.log('word is invalid!');
+//     else
+//         console.log('word is invalid!');
  };
  
 /*

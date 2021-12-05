@@ -38,8 +38,8 @@ function createWordListFromFile(file)
 }
 
 function generateRandomString () {
-    let randStr = "",
-        seed = "abcdefghijklmnopqrstuvwxyz";
+    let randStr = "";
+    const seed = "abcdefghijklmnopqrstuvwxyz";
 
     for (let i = 0; i < MAX_LEN; i++)
         randStr += seed.charAt(Math.floor(Math.random() * 26));

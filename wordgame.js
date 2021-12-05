@@ -8,6 +8,7 @@ WordGame = function() {
 
 const MAX_LEN = 100; // assumed length
 const MAX_SCORE_LIST_SIZE = 10;
+const seed = "abcdefghijklmnopqrstuvwxyz";
 
 let scoredWordList = [];
 let wordList = [];
@@ -39,7 +40,6 @@ function createWordListFromFile(file)
 
 function generateRandomString () {
     let randStr = "";
-    const seed = "abcdefghijklmnopqrstuvwxyz";
 
     for (let i = 0; i < MAX_LEN; i++)
         randStr += seed.charAt(Math.floor(Math.random() * 26));
